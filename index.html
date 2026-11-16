@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Atendai • Instalar chat no site</title>
   <style>
-    *{box-sizing:border-box}body{margin:0;background:#f5f7fb;color:#14213b;font-family:system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:56px 24px}nav{font-weight:800;letter-spacing:-1px;font-size:26px;color:#2563eb}small{display:block;margin-top:64px;color:#2563eb;font-weight:700;letter-spacing:2px}h1{font-size:clamp(32px,5vw,52px);line-height:1.1;max-width:700px;letter-spacing:-2px;margin:16px 0}p{color:#536078;line-height:1.7;max-width:660px}.grid{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;margin-top:36px}.card{padding:28px;background:#fff;border:1px solid #e0e6ef;border-radius:20px}h2{font-size:18px;margin:0 0 24px}label{display:block;font-size:14px;font-weight:600;margin:18px 0 8px}input,select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:9px;font:inherit;background:white}input[type=color]{height:46px;padding:5px}button{border:0;border-radius:9px;padding:13px 20px;background:#2563eb;color:white;font:inherit;font-weight:600;cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#101c32;color:#d9e7ff;padding:20px;border-radius:12px;font-size:13px;line-height:1.8}#status{font-size:13px;min-height:22px}a{color:#2563eb}.note{font-size:13px}@media(max-width:700px){.grid{grid-template-columns:1fr}main{padding-top:28px}small{margin-top:40px}}
+    *{box-sizing:border-box}body{margin:0;background:#f5f7fb;color:#14213b;font-family:system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:56px 24px}nav{font-weight:800;letter-spacing:-1px;font-size:26px;color:#008252}small{display:block;margin-top:64px;color:#008252;font-weight:700;letter-spacing:2px}h1{font-size:clamp(32px,5vw,52px);line-height:1.1;max-width:700px;letter-spacing:-2px;margin:16px 0}p{color:#536078;line-height:1.7;max-width:660px}.grid{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;margin-top:36px}.card{padding:28px;background:#fff;border:1px solid #e0e6ef;border-radius:20px}h2{font-size:18px;margin:0 0 24px}label{display:block;font-size:14px;font-weight:600;margin:18px 0 8px}input,select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:9px;font:inherit;background:white}input[type=color]{height:46px;padding:5px}button{border:0;border-radius:9px;padding:13px 20px;background:#008252;color:white;font:inherit;font-weight:600;cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#101c32;color:#d9e7ff;padding:20px;border-radius:12px;font-size:13px;line-height:1.8}#status{font-size:13px;min-height:22px}a{color:#008252}.note{font-size:13px}@media(max-width:700px){.grid{grid-template-columns:1fr}main{padding-top:28px}small{margin-top:40px}}
   </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
         <h2>1. Personalize seu botão</h2>
         <label for="slug">Slug do cliente</label><input id="slug" value="dev" required pattern="[a-zA-Z0-9_-]+">
         <label for="title">Título do chat</label><input id="title" value="Fale com a gente" required maxlength="80">
-        <label for="color">Cor do botão</label><input id="color" type="color" value="#2563eb">
+        <label for="color">Cor do botão</label><input id="color" type="color" value="#008252">
         <label for="position">Posição</label><select id="position"><option value="right">Canto direito</option><option value="left">Canto esquerdo</option></select>
         <p><button type="submit">Aplicar e testar</button></p>
       </form>
@@ -31,7 +31,7 @@
         <p id="status" role="status" aria-live="polite"></p>
         <p class="note">O botão no canto da tela é uma prévia real. Clique nele para abrir o chat.</p>
         <a id="direct" target="_blank" rel="noopener noreferrer">Abrir chat em outra aba ↗</a>
-        <p class="note">O código usa raw.githack.com. A versão v1.0.0 precisa estar publicada no repositório público do GitHub.</p>
+        <p class="note">O código usa raw.githack.com. A versão v1.0.1 precisa estar publicada no repositório público do GitHub.</p>
       </section>
     </div>
   </main>
