@@ -8,7 +8,7 @@ Cole antes de `</body>`:
 
 ```html
 <script
-  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.0/script.js"
+  src="https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.0/script.js"
   data-slug="dev"
   data-color="#008252"
   data-theme="dark"
@@ -64,7 +64,7 @@ Atualmente, o widget aparece em todas as páginas que carregam o script. Em site
 
 ```html
 <script
-  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.0/script.js"
+  src="https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.0/script.js"
   data-slug="dev"
   data-include="/contato,/produtos/*"
   data-exclude="/checkout/*"
@@ -85,3 +85,5 @@ O repositório precisa ser público. A tag `v1.0.0` aponta para o código atual;
 Se o site usa CSP, permita a origem do script em `script-src`, os estilos do widget em `style-src` e a origem do chat em `frame-src`. O servidor do chat precisa permitir incorporação: `X-Frame-Options` e `frame-ancestors` restritivos podem bloquear o iframe. A API continua sendo acessada dentro do iframe; não é necessário liberar CORS para a origem do site hospedeiro.
 
 Câmera e microfone dependem de HTTPS e da política de permissões do site. Navegadores podem restringir armazenamento e notificações em iframes de terceiros; use abrir em outra aba nesses casos. Valide login e envio de mensagens em um domínio externo antes de distribuir.
+
+O endereço antigo em raw.githack.com manteve uma cópia anterior da tag v1.0.0 mesmo após a atualização. Os exemplos usam rawcdn.githack.com, verificado com o conteúdo atual. Ao substituir uma tag existente, confirme o arquivo entregue pela CDN, pois atualizar o GitHub não invalida automaticamente os caches externos.
