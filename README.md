@@ -4,12 +4,12 @@ Página separada de instalação e demonstração: `index.html`.
 Projeto independente, sem build ou dependências. Repositório: https://github.com/OpenitDev/widget-meet.atendai.chat. Abra index.html por um servidor estático para testar.
 
 ```html
-<script src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.1/script.js" data-slug="dev" defer></script>
+<script src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.2/script.js" data-slug="dev" defer></script>
 ```
 
 Opções: `data-title` (título), `data-color` (hexadecimal com seis dígitos), `data-position` (`left` ou `right`) e `data-base-url` (origem do chat, quando o script estiver em uma CDN diferente). Por padrão, o chat usa https://meet.atendai.chat e a rota `/:slug/nova-conversa`.
 
-O widget usa Shadow DOM para isolar os estilos e carrega o iframe apenas no primeiro clique. Fechar preserva o iframe e a conversa durante a navegação atual. O link no cabeçalho permite abrir o chat em outra aba.
+O widget usa Shadow DOM para isolar os estilos e carrega o iframe apenas no primeiro clique. Fechar preserva o iframe e a conversa durante a navegação atual. O controle no canto superior direito permite abrir o chat em outra aba.
 
 ## Hospedagem
 
@@ -35,7 +35,7 @@ Os atributos `data-include` e `data-exclude` abaixo são uma proposta de configu
 
 ```html
 <script
-  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.1/script.js"
+  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.2/script.js"
   data-slug="dev"
   data-include="/contato,/produtos/*"
   data-exclude="/checkout/*"
@@ -62,7 +62,7 @@ Estas opções já funcionam na versão `v1.0.1`:
 
 ```html
 <script
-  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.1/script.js"
+  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.2/script.js"
   data-slug="dev"
   data-title="Converse com nosso time"
   data-color="#16a34a"
@@ -73,13 +73,13 @@ Estas opções já funcionam na versão `v1.0.1`:
 
 | Atributo | O que altera | Padrão |
 | --- | --- | --- |
-| `data-title` | Título do painel e descrição acessível do botão e do iframe | `Fale com a gente` |
-| `data-color` | Cor de fundo do botão e do cabeçalho do painel | `#008252` |
+| `data-title` | Descrição acessível do painel, do botão e do iframe | `Fale com a gente` |
+| `data-color` | Cor de fundo do botão flutuante | `#008252` |
 | `data-position` | Lado em que o botão e o painel aparecem: `left` ou `right` | `right` |
 
 A cor deve ser hexadecimal com seis dígitos, incluindo `#`. Por exemplo: `#16a34a`, `#7c3aed` ou `#111827`. Valores como `red`, `#fff` e `rgb(...)` não são aceitos; nesses casos, o widget usa a cor padrão. Escolha uma cor que mantenha o texto e o ícone brancos legíveis.
 
-O título aparece no cabeçalho do painel. O botão fechado mostra somente o ícone. As configurações são lidas quando o script executa; depois de editar os atributos no HTML, recarregue a página para ver o resultado.
+Desde a v1.0.2, o painel não exibe cabeçalho ou título visível; data-title define apenas as descrições acessíveis. O botão fechado mostra somente o ícone. As configurações são lidas quando o script executa; depois de editar os atributos no HTML, recarregue a página para ver o resultado.
 
 Para testar sem editar o site, abra a página `index.html` deste repositório por um servidor estático: ela permite escolher título, cor e posição e copiar o código pronto.
 
@@ -92,7 +92,7 @@ Essas opções ainda não têm atributos de configuração. Para alterá-las de 
 | `.launcher` em `style.textContent` | Tamanho do botão (`60px`), distância das bordas, arredondamento e sombra |
 | `.launcher svg` | Tamanho do ícone (`28px`) |
 | `.panel` | Largura máxima (`480px`, com mínimo de `350px`), proporção responsiva (`3:4` ou `9:16`), distância inferior, bordas e sombra |
-| `header`, `strong` e `a` | Espaçamento e tipografia do cabeçalho |
+| `.panel-control`, `.close` e `.external` | Visual e posição dos controles de fechar e abrir em outra aba |
 | `@media(max-width:480px)` | Dimensões e espaçamento do painel em celulares |
 | `launcher.innerHTML` | SVG do ícone do botão |
 
@@ -115,3 +115,8 @@ Mudanças nos atributos de instalação não exigem publicar outra versão do wi
 O painel usa largura mínima de 350px e máxima de 480px. Abaixo de 1600px de largura da viewport, usa proporção 3:4; a partir de 1600px, usa 9:16. O tamanho considera o espaço disponível na viewport. A largura mínima tem prioridade: em telas muito estreitas ou baixas, o painel pode ultrapassar a área disponível. A cor padrão é #008252 e continua configurável por data-color.
 
 Esses estilos já fazem parte do script; não é necessário injetar CSS pelo site que o incorpora.
+
+
+## Controles do painel — v1.0.2
+
+O painel não possui faixa de cabeçalho. O botão X fica no canto superior esquerdo e o botão de abrir em outra aba no canto superior direito, sobre o conteúdo. Ambos possuem descrição acessível. O iframe ocupa toda a área do painel.

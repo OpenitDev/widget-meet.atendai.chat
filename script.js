@@ -21,7 +21,7 @@
     host.style.cssText = "all:initial!important;position:fixed!important;bottom:0!important;" + (left ? "left" : "right") + ":0!important;z-index:2147483647!important;";
     var root = host.attachShadow({ mode: "open" });
     var style = document.createElement("style");
-    style.textContent = ":host{font-family:system-ui,sans-serif;color:#172033}*{box-sizing:border-box}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer;font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #60a5fa;outline-offset:3px}.launcher{position:absolute;bottom:max(20px,env(safe-area-inset-bottom));" + (left ? "left" : "right") + ":20px;width:60px;height:60px;border:0;border-radius:50%;background:" + color + ";color:white;box-shadow:0 6px 24px #0003;display:grid;place-items:center}.launcher svg{width:28px;height:28px}.panel{position:absolute;bottom:92px;" + (left ? "left" : "right") + ":20px;width:min(400px,calc(100vw - 40px));height:min(680px,calc(100dvh - 112px));background:white;border-radius:18px;box-shadow:0 12px 48px #0003;overflow:hidden;display:flex;flex-direction:column}.panel[hidden]{display:none}header{display:flex;align-items:center;gap:12px;padding:14px 16px;background:" + color + ";color:white}strong{flex:1;font-size:15px}a{color:inherit;font-size:12px}header button{border:0;background:transparent;color:inherit;font-size:26px;line-height:1;padding:4px}iframe{border:0;width:100%;flex:1;min-height:0;background:#fff}@media(max-width:480px){.panel{width:calc(100vw - 16px);" + (left ? "left" : "right") + ":8px;bottom:88px;height:calc(100dvh - 104px);border-radius:14px}}";
+    style.textContent = ":host{font-family:system-ui,sans-serif;color:#172033}*{box-sizing:border-box}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer;font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #60a5fa;outline-offset:3px}.launcher{position:absolute;bottom:max(20px,env(safe-area-inset-bottom));" + (left ? "left" : "right") + ":20px;width:60px;height:60px;border:0;border-radius:50%;background:" + color + ";color:white;box-shadow:0 6px 24px #0003;display:grid;place-items:center}.launcher svg{width:28px;height:28px}.panel{position:absolute;bottom:92px;" + (left ? "left" : "right") + ":20px;width:min(400px,calc(100vw - 40px));height:min(680px,calc(100dvh - 112px));background:white;border-radius:18px;box-shadow:0 12px 48px #0003;overflow:hidden;display:flex;flex-direction:column}.panel[hidden]{display:none}.panel-control{position:absolute;top:12px;z-index:1;display:grid;place-items:center;width:36px;height:36px;border:1px solid #e2e8f0;border-radius:50%;background:#fff;color:#172033;box-shadow:0 2px 10px #0002;text-decoration:none;font-size:24px;line-height:1;padding:0}.panel-control:hover{background:#f1f5f9}.close{left:12px}.external{right:12px}iframe{display:block;border:0;width:100%;flex:1;min-height:0;background:#fff}@media(max-width:480px){.panel{width:calc(100vw - 16px);" + (left ? "left" : "right") + ":8px;bottom:88px;height:calc(100dvh - 104px);border-radius:14px}}";
     // Dimensões padrão: painel mais largo em HD e proporção 9:16 em telas maiores.
     style.textContent += `
       .panel {
@@ -45,20 +45,25 @@
     panel.hidden = true;
     panel.setAttribute("role", "region");
     panel.setAttribute("aria-label", title);
-    var header = document.createElement("header");
-    var heading = document.createElement("strong");
-    heading.textContent = title;
+
+
+
     var external = document.createElement("a");
     external.href = url;
     external.target = "_blank";
     external.rel = "noopener noreferrer";
-    external.textContent = "Abrir em nova aba";
+    external.className = "panel-control external";
+    external.textContent = "↗";
+    external.setAttribute("aria-label", "Abrir em nova aba");
+    external.title = "Abrir em nova aba";
     var close = document.createElement("button");
     close.type = "button";
+    close.className = "panel-control close";
+    close.title = "Fechar chat";
     close.textContent = "×";
     close.setAttribute("aria-label", "Fechar chat");
-    header.append(heading, external, close);
-    panel.appendChild(header);
+    panel.append(close, external);
+
     var launcher = document.createElement("button");
     launcher.type = "button";
     launcher.className = "launcher";
