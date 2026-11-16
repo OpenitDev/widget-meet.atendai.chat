@@ -24,3 +24,33 @@ Microfone e câmera dependem de HTTPS e da política de permissões do site hosp
 O repositório precisa ser público. Envie os arquivos, crie a tag v1.0.0 e publique a tag. A URL de instalação está fixada nessa versão para evitar mudanças inesperadas nos sites dos clientes. Para uma atualização, publique outra tag e atualize a URL de instalação.
 
 Para testar localmente: python -m http.server 8080 e abra http://localhost:8080.
+
+## Escolher em quais páginas o widget aparece
+
+Atualmente, o widget aparece em todas as páginas que carregam o script. Se ele estiver no HTML principal de uma aplicação React, aparecerá em todas as rotas. Para sites com páginas HTML independentes, inclua o script somente nas páginas desejadas.
+
+### Proposta de filtros por rota (ainda não implementada)
+
+Os atributos `data-include` e `data-exclude` abaixo são uma proposta de configuração. A versão `v1.0.0` não interpreta esses atributos: copiar este exemplo hoje não limita a exibição do widget.
+
+```html
+<script
+  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.0/script.js"
+  data-slug="dev"
+  data-include="/contato,/produtos/*"
+  data-exclude="/checkout/*"
+  async
+></script>
+```
+
+Comportamento previsto para uma futura implementação:
+
+- `data-include`: caminhos permitidos, separados por vírgulas. Sem esse atributo, todas as páginas seriam permitidas.
+- `data-exclude`: caminhos bloqueados, separados por vírgulas. Uma exclusão teria prioridade sobre uma inclusão.
+- Um caminho como `/contato` corresponderia exatamente a essa página; `/produtos/*` corresponderia às páginas dentro de `/produtos/`.
+- Os filtros considerariam o caminho da URL (`pathname`), sem parâmetros de consulta ou fragmentos.
+- Em aplicações React e outras SPAs, a implementação precisaria acompanhar mudanças de rota sem recarregar a página para atualizar a visibilidade do botão.
+
+No exemplo, o widget apareceria em `/contato` e nas páginas dentro de `/produtos/`. O filtro `/checkout/*` ilustra uma exclusão, embora essas páginas já estejam fora das inclusões desse exemplo.
+
+Quando os filtros forem implementados, será necessário publicar uma nova versão e atualizar a URL do script. A tag `v1.0.0` continuará sem esse recurso.
