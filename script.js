@@ -23,10 +23,10 @@
     host.style.cssText = "all:initial!important;position:fixed!important;bottom:0!important;" + (left ? "left" : "right") + ":0!important;z-index:2147483647!important;";
     var root = host.attachShadow({ mode: "open" });
     var style = document.createElement("style");
-    style.textContent = ":host{font-family:system-ui,sans-serif;color:#172033}*{box-sizing:border-box}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer;font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #60a5fa;outline-offset:3px}.launcher{position:absolute;bottom:max(20px,env(safe-area-inset-bottom));" + (left ? "left" : "right") + ":20px;width:60px;height:60px;border:0;border-radius:50%;background:" + color + ";color:white;box-shadow:0 6px 24px #0003;display:grid;place-items:center}.launcher svg{width:28px;height:28px}.panel{position:absolute;bottom:92px;" + (left ? "left" : "right") + ":20px;width:min(400px,calc(100vw - 40px));height:min(680px,calc(100dvh - 112px));background:white;border-radius:18px;box-shadow:0 12px 48px #0003;overflow:hidden;display:flex;flex-direction:column}.panel[hidden]{display:none}.panel-control{position:absolute;top:12px;z-index:1;display:grid;place-items:center;width:36px;height:36px;border:0;border-radius:6px;background:transparent;color:var(--control-color);box-shadow:none;transition:color .15s ease;text-decoration:none;font-size:24px;line-height:1;padding:0}.panel-control:hover{color:var(--control-hover)}.panel-control svg{width:22px;height:22px}.close{right:12px}.external{left:12px}iframe{display:block;border:0;width:100%;flex:1;min-height:0;background:#fff}@media(max-width:480px){.panel{width:calc(100vw - 16px);" + (left ? "left" : "right") + ":8px;bottom:88px;height:calc(100dvh - 104px);border-radius:14px}}";
+    style.textContent = ":host{font-family:system-ui,sans-serif;color:#172033}*{box-sizing:border-box}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer;font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #60a5fa;outline-offset:3px}.launcher{position:absolute;bottom:max(20px,env(safe-area-inset-bottom));" + (left ? "left" : "right") + ":20px;width:60px;height:60px;border:0;border-radius:50%;background:" + color + ";color:white;box-shadow:0 6px 24px #0003;display:grid;place-items:center}.launcher svg{width:28px;height:28px}.panel{position:absolute;bottom:92px;" + (left ? "left" : "right") + ":20px;width:min(400px,calc(100vw - 40px));height:min(680px,calc(100dvh - 112px));background:" + color + ";border-radius:18px;box-shadow:0 12px 48px #0003;overflow:hidden;display:flex;flex-direction:column}.panel[hidden]{display:none}.panel-controls{display:flex;align-items:center;justify-content:space-between;flex-shrink:0;padding:4px 8px 12px}.panel-control{display:grid;place-items:center;width:28px;height:28px;border:0;border-radius:6px;background:transparent;color:var(--control-color);box-shadow:none;transition:color .15s ease;text-decoration:none;font-size:24px;line-height:1;padding:0}.panel-control:hover{color:var(--control-hover)}.panel-control svg{width:18px;height:18px}iframe{display:block;border:0;width:100%;flex:1;min-height:0;background:#fff}@media(max-width:480px){.panel{width:calc(100vw - 16px);" + (left ? "left" : "right") + ":8px;bottom:88px;height:calc(100dvh - 104px);border-radius:14px}}";
     // Dimensões padrão: painel mais largo em HD e proporção 9:16 em telas maiores.
     style.textContent += `
-      :host { --control-color: #334155; --control-hover: #008252; }
+      :host { --control-color: #334155; --control-hover: #ffffff; }
       :host([data-theme="dark"]) { --control-color: #e2e8f0; --control-hover: #6ee7b7; }
       @media (prefers-color-scheme: dark) {
         :host([data-theme="auto"]) { --control-color: #e2e8f0; --control-hover: #6ee7b7; }
@@ -69,7 +69,10 @@
     close.title = "Fechar chat";
     close.innerHTML = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 6 12 12M18 6 6 18\"/></svg>";
     close.setAttribute("aria-label", "Fechar chat");
-    panel.append(close, external);
+    var controls = document.createElement("div");
+    controls.className = "panel-controls";
+    controls.append(external, close);
+    panel.appendChild(controls);
 
     var launcher = document.createElement("button");
     launcher.type = "button";

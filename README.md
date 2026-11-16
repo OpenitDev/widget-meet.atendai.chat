@@ -4,7 +4,7 @@ Página separada de instalação e demonstração: `index.html`.
 Projeto independente, sem build ou dependências. Repositório: https://github.com/OpenitDev/widget-meet.atendai.chat. Abra index.html por um servidor estático para testar.
 
 ```html
-<script src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.3/script.js" data-slug="dev" defer></script>
+<script src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.4/script.js" data-slug="dev" defer></script>
 ```
 
 Opções: `data-title` (título), `data-color` (hexadecimal com seis dígitos), `data-position` (`left` ou `right`) e `data-base-url` (origem do chat, quando o script estiver em uma CDN diferente). Por padrão, o chat usa https://meet.atendai.chat e a rota `/:slug/nova-conversa`.
@@ -35,7 +35,7 @@ Os atributos `data-include` e `data-exclude` abaixo são uma proposta de configu
 
 ```html
 <script
-  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.3/script.js"
+  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.4/script.js"
   data-slug="dev"
   data-include="/contato,/produtos/*"
   data-exclude="/checkout/*"
@@ -62,7 +62,7 @@ Estas opções já funcionam na versão `v1.0.1`:
 
 ```html
 <script
-  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.3/script.js"
+  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.4/script.js"
   data-slug="dev"
   data-title="Converse com nosso time"
   data-color="#16a34a"
@@ -127,5 +127,10 @@ O painel não possui faixa de cabeçalho. O botão X fica no canto superior esqu
 Use `data-theme="light"` (controles escuros, hover verde), `data-theme="dark"` (controles claros, hover verde claro) ou `data-theme="auto"` (padr?o, acompanha a prefer?ncia do sistema). Os controles n?o possuem fundo, borda ou sombra, inclusive no hover. O tema altera apenas os controles do widget; o chat mant?m seu pr?prio tema.
 
 ```html
-<script src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.3/script.js" data-slug="dev" data-theme="dark" async></script>
+<script src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.4/script.js" data-slug="dev" data-theme="dark" async></script>
 ```
+
+
+## Controles menores e espaçamento - v1.0.4
+
+Os controles possuem área de 28px e ícones de 18px. A faixa acima do iframe reserva 12px de padding inferior entre os controles e o chat. Seu fundo usa a cor de `data-color`. Os controles ficam fora da área do iframe e não se sobrepõem aos botões da conversa. As proporções do painel permanecem iguais. No tema claro, o hover agora usa branco para se destacar sobre a faixa colorida.
