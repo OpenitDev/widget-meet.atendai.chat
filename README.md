@@ -31,13 +31,13 @@ A origem do chat é `https://meet.atendai.chat` e a rota é `/:slug/nova-convers
 
 A cor aceita somente hexadecimal com seis dígitos, como `#008252`. Nomes de cores, `#fff` e `rgb(...)` usam a cor padrão. As opções são lidas quando o script executa: após alterar os atributos, recarregue a página.
 
-O painel não possui título visível. Abrir em outra aba fica à esquerda e o X à direita. Os controles têm 28px e os SVGs 18px, sem fundo próprio, borda ou sombra. A faixa usa `data-color` e reserva 12px de padding inferior antes do iframe, evitando sobreposição com o chat.
+O painel não possui título visível. Abrir em outra aba fica à esquerda e o X à direita. Os controles têm 28px e os SVGs 18px, sem fundo próprio, borda ou sombra. A faixa usa `data-color` e tem 44px de altura, com os controles centralizados e 8px de espaço acima e abaixo, evitando sobreposição com o chat.
 
 `light` usa ícones escuros com hover branco. `dark` usa ícones claros com hover verde claro. `auto` acompanha a preferência do sistema. O tema afeta os controles; o conteúdo do chat tem seu próprio tema. Escolha o tema que ofereça contraste com `data-color`.
 
 ## Tamanho e estilo avançado
 
-O painel tem largura mínima de 350px e máxima de 480px. Abaixo de 1600px de largura da viewport, a proporção é 3:4; a partir de 1600px, é 9:16. O cálculo considera a altura disponível. A largura mínima tem prioridade e pode ultrapassar telas muito estreitas ou baixas.
+O painel tem largura mínima de 350px e máxima de 480px. Abaixo de 1600px de largura da viewport, a proporção é 3:4; a partir de 1600px, é 9:16. O cálculo considera a altura disponível. Em celulares de até 480px de largura, o painel usa a largura e a altura disponíveis, com 8px nas laterais e espaço para o botão flutuante. Nesses tamanhos, a proporção é livre; a largura mínima é limitada à tela para não provocar corte lateral.
 
 Para alterar o estilo permanentemente, edite `script.js`:
 
@@ -87,3 +87,8 @@ Se o site usa CSP, permita a origem do script em `script-src`, os estilos do wid
 Câmera e microfone dependem de HTTPS e da política de permissões do site. Navegadores podem restringir armazenamento e notificações em iframes de terceiros; use abrir em outra aba nesses casos. Valide login e envio de mensagens em um domínio externo antes de distribuir.
 
 O endereço antigo em raw.githack.com manteve uma cópia anterior da tag v1.0.0 mesmo após a atualização. Os exemplos usam rawcdn.githack.com, verificado com o conteúdo atual. Ao substituir uma tag existente, confirme o arquivo entregue pela CDN, pois atualizar o GitHub não invalida automaticamente os caches externos.
+
+
+## Integração com o chat externo
+
+Os controles ficam fora do iframe, centralizados em uma faixa de 44px. O chat externo não precisa reservar espaço adicional para esses controles. No projeto wopen-chat-externo-frontend, as páginas incorporadas usam a área completa do iframe e centralizam o conjunto de logo, nome e card. O cadastro usa etapas nos widgets com menos de 640px de altura para manter os campos legíveis, preservando os dados ao voltar de etapa. O chat continua com rolagem de mensagens.
