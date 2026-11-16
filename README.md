@@ -4,12 +4,12 @@ Página separada de instalação e demonstração: `index.html`.
 Projeto independente, sem build ou dependências. Repositório: https://github.com/OpenitDev/widget-meet.atendai.chat. Abra index.html por um servidor estático para testar.
 
 ```html
-<script src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.2/script.js" data-slug="dev" defer></script>
+<script src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.3/script.js" data-slug="dev" defer></script>
 ```
 
 Opções: `data-title` (título), `data-color` (hexadecimal com seis dígitos), `data-position` (`left` ou `right`) e `data-base-url` (origem do chat, quando o script estiver em uma CDN diferente). Por padrão, o chat usa https://meet.atendai.chat e a rota `/:slug/nova-conversa`.
 
-O widget usa Shadow DOM para isolar os estilos e carrega o iframe apenas no primeiro clique. Fechar preserva o iframe e a conversa durante a navegação atual. O controle no canto superior direito permite abrir o chat em outra aba.
+O widget usa Shadow DOM para isolar os estilos e carrega o iframe apenas no primeiro clique. Fechar preserva o iframe e a conversa durante a navegação atual. O controle no canto superior esquerdo permite abrir o chat em outra aba.
 
 ## Hospedagem
 
@@ -35,7 +35,7 @@ Os atributos `data-include` e `data-exclude` abaixo são uma proposta de configu
 
 ```html
 <script
-  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.2/script.js"
+  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.3/script.js"
   data-slug="dev"
   data-include="/contato,/produtos/*"
   data-exclude="/checkout/*"
@@ -62,7 +62,7 @@ Estas opções já funcionam na versão `v1.0.1`:
 
 ```html
 <script
-  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.2/script.js"
+  src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.3/script.js"
   data-slug="dev"
   data-title="Converse com nosso time"
   data-color="#16a34a"
@@ -120,3 +120,12 @@ Esses estilos já fazem parte do script; não é necessário injetar CSS pelo si
 ## Controles do painel — v1.0.2
 
 O painel não possui faixa de cabeçalho. O botão X fica no canto superior esquerdo e o botão de abrir em outra aba no canto superior direito, sobre o conteúdo. Ambos possuem descrição acessível. O iframe ocupa toda a área do painel.
+
+
+## Tema dos controles - v1.0.3
+
+Use `data-theme="light"` (controles escuros, hover verde), `data-theme="dark"` (controles claros, hover verde claro) ou `data-theme="auto"` (padr?o, acompanha a prefer?ncia do sistema). Os controles n?o possuem fundo, borda ou sombra, inclusive no hover. O tema altera apenas os controles do widget; o chat mant?m seu pr?prio tema.
+
+```html
+<script src="https://raw.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.3/script.js" data-slug="dev" data-theme="dark" async></script>
+```
