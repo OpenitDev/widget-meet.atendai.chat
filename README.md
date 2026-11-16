@@ -8,7 +8,7 @@ Cole antes de `</body>`:
 
 ```html
 <script
-  src="https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.0/script.js"
+  src="https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/1468cb2bc2689fed9ae0ae42b311e2f7213929fe/script.js"
   data-slug="dev"
   data-color="#008252"
   data-theme="dark"
@@ -64,7 +64,7 @@ Atualmente, o widget aparece em todas as páginas que carregam o script. Em site
 
 ```html
 <script
-  src="https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/v1.0.0/script.js"
+  src="https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/1468cb2bc2689fed9ae0ae42b311e2f7213929fe/script.js"
   data-slug="dev"
   data-include="/contato,/produtos/*"
   data-exclude="/checkout/*"
@@ -92,3 +92,6 @@ O endereço antigo em raw.githack.com manteve uma cópia anterior da tag v1.0.0 
 ## Integração com o chat externo
 
 Os controles ficam fora do iframe, centralizados em uma faixa de 44px. O chat externo não precisa reservar espaço adicional para esses controles. No projeto wopen-chat-externo-frontend, as páginas incorporadas usam a área completa do iframe e centralizam o conjunto de logo, nome e card. O cadastro usa etapas nos widgets com menos de 640px de altura para manter os campos legíveis, preservando os dados ao voltar de etapa. O chat continua com rolagem de mensagens.
+
+
+A única tag de versão continua sendo v1.0.0. Os exemplos da CDN usam o commit 1468cb2bc2689fed9ae0ae42b311e2f7213929fe dessa versão: esse endereço identifica o código exato e evita receber uma cópia antiga da tag mutável. Ao publicar alterações no script, atualize a revisão nos exemplos de instalação.
