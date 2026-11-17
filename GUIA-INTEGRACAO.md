@@ -21,7 +21,7 @@ Copie o arquivo `script.js` deste projeto para uma pasta pública do seu site. N
 
 Acesse essa URL no navegador e confirme que ela entrega JavaScript, não uma página HTML, um erro 404 ou uma tela de login.
 
-Se preferir CDN, use a URL pública da revisão que você publicou no lugar de `/atendai/script.js`.
+Se preferir CDN, a versão publicada atual é **v1.1.0**. Use `https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/v1.1.0/script.js` no lugar de `/atendai/script.js`. A release aponta para o commit `d072a8733dd737770b3ce33c64496a328bb9b0ae`; a tag anterior não foi alterada. Sites instalados com uma URL antiga precisam atualizar o `src`.
 
 ### Adicionar ao site
 
