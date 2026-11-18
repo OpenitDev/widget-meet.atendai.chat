@@ -2,7 +2,7 @@
 
 Para instalar e usar o chat no seu site, consulte o **[Guia de integração](GUIA-INTEGRACAO.md)**: instalação, configurações, uso no celular, notificações, persistência e solução de problemas.
 
-Projeto independente, sem build. A única versão publicada é `v1.0.0`, com todas as modificações atuais.
+Projeto independente, sem build. Versão atual: **[v1.1.0](https://github.com/OpenitDev/widget-meet.atendai.chat/releases/tag/v1.1.0)**. A versão `v1.0.0` foi preservada.
 
 ## Instalar
 
@@ -10,7 +10,7 @@ Cole antes de `</body>`:
 
 ```html
 <script
-  src="https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/1468cb2bc2689fed9ae0ae42b311e2f7213929fe/script.js"
+  src="https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/v1.1.0/script.js"
   data-slug="dev"
   data-color="#008252"
   data-theme="dark"
@@ -81,7 +81,7 @@ Atualmente, o widget aparece em todas as páginas que carregam o script. Em site
 
 ```html
 <script
-  src="https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/1468cb2bc2689fed9ae0ae42b311e2f7213929fe/script.js"
+  src="https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/v1.1.0/script.js"
   data-slug="dev"
   data-include="/contato,/produtos/*"
   data-exclude="/checkout/*"
@@ -95,7 +95,7 @@ O comportamento previsto é aceitar caminhos separados por vírgulas, com exclus
 
 Execute `python -m http.server 8080` nesta pasta e abra `http://localhost:8080`. A demonstração permite personalizar e copiar o script.
 
-O repositório precisa ser público. A tag `v1.0.0` aponta para o código atual; as demais tags foram removidas. Após atualizar essa tag, caches da CDN e do navegador podem continuar entregando o arquivo anterior até serem renovados. Alterar os atributos de instalação não exige publicar o script.
+O repositório precisa ser público. Publique alterações em novas tags/releases; não mova tags já publicadas. A release `v1.1.0` aponta para o commit `d072a8733dd737770b3ce33c64496a328bb9b0ae`. Atualize o `src` nos sites para essa versão: links fixados em versões anteriores não se atualizam automaticamente. Alterar somente os atributos de instalação não exige publicar o script.
 
 ## Incorporação e permissões
 
@@ -103,7 +103,7 @@ Se o site usa CSP, permita a origem do script em `script-src`, os estilos do wid
 
 Câmera e microfone dependem de HTTPS e da política de permissões do site. Navegadores podem restringir armazenamento e notificações em iframes de terceiros; use abrir em outra aba nesses casos. Valide login e envio de mensagens em um domínio externo antes de distribuir.
 
-O endereço antigo em raw.githack.com manteve uma cópia anterior da tag v1.0.0 mesmo após a atualização. Os exemplos usam rawcdn.githack.com, verificado com o conteúdo atual. Ao substituir uma tag existente, confirme o arquivo entregue pela CDN, pois atualizar o GitHub não invalida automaticamente os caches externos.
+Os exemplos usam `rawcdn.githack.com` com versão explícita. Caches de URLs antigas não são invalidados por um commit ou merge no GitHub. Confira a versão entregue e utilize uma nova URL ao atualizar, sem substituir tags existentes.
 
 
 ## Integração com o chat externo
@@ -125,4 +125,4 @@ O host também toca um tom curto e discreto via Web Audio, sem baixar arquivos o
 Os controles ficam fora do iframe em uma faixa de 40px (48px mais safe area no modo tela cheia); o chat não precisa reservar espaço para eles. O cadastro continua usando etapas em iframes baixos, e o histórico de mensagens mantém sua rolagem atual.
 
 
-A única tag de versão continua sendo v1.0.0. Os exemplos da CDN usam o commit 1468cb2bc2689fed9ae0ae42b311e2f7213929fe dessa versão: esse endereço identifica o código exato e evita receber uma cópia antiga da tag mutável. Ao publicar alterações no script, atualize a revisão nos exemplos de instalação.
+A versão atual de instalação é `v1.1.0`. Para fixar o conteúdo pelo commit, use `https://rawcdn.githack.com/OpenitDev/widget-meet.atendai.chat/d072a8733dd737770b3ce33c64496a328bb9b0ae/script.js`. O chat externo dentro do iframe possui deploy independente do script do widget.
